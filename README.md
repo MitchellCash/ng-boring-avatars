@@ -7,8 +7,8 @@ project this is the tiny Angular library that generates custom, SVG-based, round
 username and color palette.
 
 For a demo of how the avatars render please check out the [Boring Designers](https://github.com/boringdesigners)
-demo website. Although based around React you can expect the same results in Angular with this
-library. 
+demo website [here](https://boringavatars.com). Although based around React you can expect the same
+results in Angular with this library. 
 
 ## Install
 
