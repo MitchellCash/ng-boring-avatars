@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ng-boring-avatars",
       "sourceRoot": "projects/ng-boring-avatars/src",
-      "prefix": "lib",
+      "prefix": "ng-boring-avatars",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -31,9 +31,21 @@
             "tsConfig": "projects/ng-boring-avatars/tsconfig.spec.json",
             "karmaConfig": "projects/ng-boring-avatars/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-boring-avatars/**/*.ts",
+              "projects/ng-boring-avatars/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ng-boring-avatars"
+  "defaultProject": "ng-boring-avatars",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
