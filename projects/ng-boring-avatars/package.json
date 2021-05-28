@@ -1,6 +1,6 @@
 {
   "name": "ng-boring-avatars",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "A tiny Angular library that generates custom, SVG-based, round avatars from any username and color palette based on React Boring Avatars.",
   "keywords": [
     "angular",
