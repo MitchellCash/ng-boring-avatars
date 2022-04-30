@@ -33,7 +33,7 @@ interface IBeamData {
         [attr.size]="inputSize"
       >
         <mask
-          id="mask__beam"
+          [attr.id]="mask_id"
           maskUnits="userSpaceOnUse"
           x=0
           y=0
@@ -47,7 +47,7 @@ interface IBeamData {
             fill="white"
           />
         </mask>
-        <g mask="url(#mask__beam)" fill="transparent">
+        <g [attr.mask]="'url(#'+mask_id+')'" fill="transparent">
           <rect
             [attr.width]="SIZE"
             [attr.height]="SIZE"
@@ -83,7 +83,7 @@ export class AvatarBeamComponent implements OnInit {
 
   public SIZE = 36;
   public data: IBeamData | undefined;
-
+  mask_id: string = 'mask__beam' + Math.random().toString(36).substr(2, 9);
   ngOnInit() {
     if (this.name === undefined) {
       throw new Error("Input 'name' must be defined.");

@@ -20,7 +20,7 @@ interface IPixelElementProperties {
         [attr.size]="inputSize"
       >
         <mask
-          id="mask0"
+          [attr.id]="mask_id"
           mask-type="alpha"
           maskUnits="userSpaceOnUse"
           x=0
@@ -30,7 +30,7 @@ interface IPixelElementProperties {
         >
           <circle [attr.cx]="SIZE/2" [attr.cy]="SIZE/2" [attr.r]="SIZE/2" fill="white" />
         </mask>
-        <g mask="url(#mask0)">
+        <g [attr.mask]="'url(#'+mask_id+')'">
           <rect width=10 height=10 [attr.fill]="properties[0].color" />
           <rect x=20 width=10 height=10 [attr.fill]="properties[1].color" />
           <rect x=40 width=10 height=10 [attr.fill]="properties[2].color" />
@@ -108,7 +108,7 @@ export class AvatarPixelComponent implements OnInit {
   private ELEMENTS = 64
   public SIZE = 80
   public properties: Array<IPixelElementProperties> | undefined;
-
+  mask_id: string = 'mask0' + Math.random().toString(36).substr(2, 9);
   ngOnInit() {
     if (this.name === undefined) {
       throw new Error("Input 'name' must be defined.");
