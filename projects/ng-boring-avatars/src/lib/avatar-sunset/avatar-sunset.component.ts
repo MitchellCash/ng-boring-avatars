@@ -20,7 +20,7 @@ interface ISunsetElementProperties {
         [attr.size]="inputSize"
       >
         <mask
-          id="mask__sunset"
+          [attr.id]="mask_id"
           maskUnits="userSpaceOnUse"
           x=0
           y=0
@@ -29,7 +29,7 @@ interface ISunsetElementProperties {
         >
           <circle [attr.cx]="SIZE/2" [attr.cy]="SIZE/2" [attr.r]="SIZE/2" fill="white" />
         </mask>
-        <g mask="url(#mask__sunset)">
+        <g [attr.mask]="'url(#'+mask_id+')'">
           <path [attr.fill]="'url(#gradient_paint0_linear_' + _name + ')'" d="M0 0h80v40H0z" />
           <path [attr.fill]="'url(#gradient_paint1_linear_' + _name + ')'" d="M0 40h80v40H0z" />
         </g>
@@ -70,7 +70,7 @@ export class AvatarSunsetComponent implements OnInit {
   public _name: string = '';
   public SIZE = 80
   public properties: Array<ISunsetElementProperties> | undefined;
-
+  mask_id: string = 'mask__sunset' + Math.random().toString(36).substr(2, 9);
   ngOnInit() {
     if (this.name === undefined) {
       throw new Error("Input 'name' must be defined.");

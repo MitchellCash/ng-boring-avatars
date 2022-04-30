@@ -24,7 +24,7 @@ interface IBauhausElementProperties {
         [attr.size]="inputSize"
       >
         <mask
-          id="mask__bauhaus"
+          [attr.id]="mask_id"
           maskUnits="userSpaceOnUse"
           x=0
           y=0
@@ -33,7 +33,7 @@ interface IBauhausElementProperties {
         >
           <rect [attr.width]="SIZE" [attr.height]="SIZE" [attr.rx]="SIZE / 2" fill="#fff" />
         </mask>
-        <g mask="url(#mask__bauhaus)">
+        <g [attr.mask]="'url(#'+mask_id+')'">
           <rect
             [attr.width]="SIZE"
             [attr.height]="SIZE"
@@ -77,6 +77,7 @@ export class AvatarBauhausComponent implements OnInit {
   private ELEMENTS = 4
   public SIZE = 80
   public properties: Array<IBauhausElementProperties> | undefined;
+  mask_id: string = 'mask__bauhaus' + Math.random().toString(36).substr(2, 9);
 
   ngOnInit() {
     if (this.name === undefined) {

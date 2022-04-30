@@ -24,7 +24,7 @@ interface IMarbleElementProperties {
         [attr.size]="inputSize"
       >
         <mask
-          id="mask__marble"
+          [attr.id]="mask_id"
           maskUnits="userSpaceOnUse"
           x=0
           y=0
@@ -36,7 +36,7 @@ interface IMarbleElementProperties {
             fill="#fff"
           />
         </mask>
-        <g mask="url(#mask__marble)">
+        <g [attr.mask]="'url(#'+mask_id+')'">
           <path
             d="M80 40C80 17.909 62.091 0 40 0S0 17.909 0 40s17.909 40 40 40 40-17.909 40-40z"
             [attr.fill]="properties[0].color"
@@ -78,7 +78,7 @@ export class AvatarMarbleComponent implements OnInit {
   private ELEMENTS = 3
   public properties: Array<IMarbleElementProperties> | undefined;
   public SIZE = 80
-
+  mask_id: string = 'mask__marble' + Math.random().toString(36).substr(2, 9);
   ngOnInit() {
     if (this.name === undefined) {
       throw new Error("Input 'name' must be defined.");
