@@ -1,5 +1,5 @@
 {
-  "name": "ng-boring-avatars",
+  "name": "@kiot-innovations/ng-boring-avatars",
   "version": "1.0.0",
   "description": "A tiny Angular library that generates custom, SVG-based, round avatars from any username and color palette based on React Boring Avatars.",
   "keywords": [
@@ -11,7 +11,7 @@
   "author": "Mitchell Cash",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MitchellCash/ng-boring-avatars.git"
+    "url": "https://github.com/arihantdaga/ng-boring-avatars.git"
   },
   "dependencies": {
     "tslib": "^2.1.0"
